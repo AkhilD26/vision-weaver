@@ -116,7 +116,7 @@ const ContactSection = () => {
           className="flex justify-center gap-4 mt-8"
         >
           <a
-            href="https://wa.me/919999999999"
+            href="https://wa.me/919032855330"
             target="_blank"
             rel="noopener noreferrer"
             className="glass px-6 py-3 rounded-xl flex items-center gap-2 text-sm font-medium text-foreground hover:bg-secondary/80 transition-all"

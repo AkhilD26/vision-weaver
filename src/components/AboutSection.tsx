@@ -26,7 +26,7 @@ const AboutSection = () => {
               About <span className="gradient-text">Me</span>
             </h2>
             <p className="text-muted-foreground text-lg leading-relaxed mb-4">
-              Hey! I'm the creative force behind <span className="text-foreground font-semibold">ProDAC Media</span>. I help creators and brands grow with high-retention, visually engaging videos.
+              Hey! I'm <span className="text-foreground font-semibold">Akhil</span> — a freelance video editor who helps creators and brands grow with high-retention, visually engaging videos.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-8">
               Specializing in YouTube content, Instagram Reels, and advertising spots — I bring cinematic quality to every project. From color grading to motion graphics, every frame is crafted to captivate your audience.

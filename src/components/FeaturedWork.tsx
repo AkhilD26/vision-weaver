@@ -13,12 +13,14 @@ interface VideoProject {
 
 // UPDATE THESE with your actual YouTube video IDs
 const projects: VideoProject[] = [
-  { id: "1", title: "Brand Story — Product Launch", category: "YouTube", youtubeId: "dQw4w9WgXcQ" },
-  { id: "2", title: "Instagram Reel — Fashion Drop", category: "Reels", youtubeId: "dQw4w9WgXcQ" },
-  { id: "3", title: "Ad Campaign — Tech Startup", category: "Ads", youtubeId: "dQw4w9WgXcQ" },
-  { id: "4", title: "YouTube Vlog — Travel Series", category: "YouTube", youtubeId: "dQw4w9WgXcQ" },
-  { id: "5", title: "Reel — Fitness Motivation", category: "Reels", youtubeId: "dQw4w9WgXcQ" },
-  { id: "6", title: "Ad Spot — Food Delivery", category: "Ads", youtubeId: "dQw4w9WgXcQ" },
+  { id: "1", title: "Cinematic Short — Visual Story", category: "Reels", youtubeId: "-TVt1tFf8eg" },
+  { id: "2", title: "Trending Reel — Dynamic Edit", category: "Reels", youtubeId: "weO4MTp3tRg" },
+  { id: "3", title: "Creative Reel — Motion Flow", category: "Reels", youtubeId: "oH-b-MrvZRk" },
+  { id: "4", title: "Short Film — Visual Impact", category: "Reels", youtubeId: "zxzHVhdCqoE" },
+  { id: "5", title: "Ad Edit — Brand Spotlight", category: "Ads", youtubeId: "cgB6xDI9Ayk" },
+  { id: "6", title: "Promo Reel — Fast Cuts", category: "Reels", youtubeId: "wNDwb00WJcY" },
+  { id: "7", title: "Creative Ad — Product Launch", category: "Ads", youtubeId: "lYoUh-920og" },
+  { id: "8", title: "YouTube Short — Engaging Edit", category: "YouTube", youtubeId: "TBfMM3W2RCs" },
 ];
 
 const categories: Category[] = ["All", "Reels", "YouTube", "Ads"];

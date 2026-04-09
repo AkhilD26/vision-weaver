@@ -37,7 +37,7 @@ const HeroSection = () => {
         >
           <span className="inline-block glass px-4 py-2 rounded-full text-sm text-muted-foreground mb-8 font-medium">
             <Play className="inline w-3 h-3 mr-2 text-primary" />
-            Professional Video Editor
+            Freelance Video Editor
           </span>
         </motion.div>
 
