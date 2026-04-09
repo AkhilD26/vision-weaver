@@ -6,7 +6,7 @@ const testimonials = [
   {
     name: "Arjun K.",
     role: "YouTube Creator",
-    text: "ProDAC transformed my channel. The editing quality and turnaround time are unmatched. My views doubled within a month!",
+    text: "Akhil transformed my channel. The editing quality and turnaround time are unmatched. My views doubled within a month!",
   },
   {
     name: "Sneha R.",
@@ -16,7 +16,7 @@ const testimonials = [
   {
     name: "Vikram P.",
     role: "Fitness Influencer",
-    text: "My reels went viral after switching to ProDAC. The motion graphics and pacing are on another level.",
+    text: "My reels went viral after working with Akhil. The motion graphics and pacing are on another level.",
   },
 ];
 
