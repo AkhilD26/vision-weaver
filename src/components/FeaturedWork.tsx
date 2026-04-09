@@ -38,7 +38,7 @@ const VideoCard = ({ project, index }: { project: VideoProject; index: number })
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="group relative rounded-xl overflow-hidden glass"
     >
-      <div className="aspect-video relative">
+      <div className="aspect-[9/16] max-h-[480px] relative mx-auto">
         {playing ? (
           <iframe
             src={`https://www.youtube.com/embed/${project.youtubeId}?autoplay=1`}
