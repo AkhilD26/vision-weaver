@@ -6,7 +6,7 @@ const navLinks = [
   { label: "Services", href: "#services" },
   { label: "Benefits", href: "#benefits" },
   { label: "Projects", href: "#work" },
-  { label: "Pricing", href: "#pricing" },
+  { label: "Contact", href: "#contact" },
 ];
 
 const Navbar = () => {
@@ -45,8 +45,8 @@ const Navbar = () => {
           ))}
         </div>
 
-        <a href="#pricing" className="hidden md:inline-flex items-center gap-2 rounded-full bg-foreground text-background pl-5 pr-2 py-2 text-sm font-medium hover:opacity-90 transition-opacity">
-          Choose your plan
+        <a href="#contact" className="hidden md:inline-flex items-center gap-2 rounded-full bg-foreground text-background pl-5 pr-2 py-2 text-sm font-medium hover:opacity-90 transition-opacity">
+          Get in touch
           <span className="w-8 h-8 rounded-full bg-background text-foreground flex items-center justify-center">
             <ArrowUpRight className="w-4 h-4" />
           </span>
@@ -71,8 +71,8 @@ const Navbar = () => {
                   {link.label}
                 </a>
               ))}
-              <a href="#pricing" onClick={() => setMobileOpen(false)} className="btn-primary justify-center">
-                Choose your plan
+              <a href="#contact" onClick={() => setMobileOpen(false)} className="btn-primary justify-center">
+                Get in touch
               </a>
             </div>
           </motion.div>

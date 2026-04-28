@@ -17,10 +17,6 @@ const benefits = [
     title: "Perfectly formatted for every platform",
     description: "Every edit is optimized for TikTok, Instagram Reels, and YouTube for maximum visibility.",
   },
-  {
-    title: "Unlimited revisions",
-    description: "I fine-tune your edit until it's 100% perfect — no extra fees, no hassle.",
-  },
 ];
 
 const AboutSection = () => {
@@ -63,7 +59,7 @@ const AboutSection = () => {
         </div>
 
         {/* Benefit cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {benefits.map((b, i) => (
             <motion.div
               key={b.title}
