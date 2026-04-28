@@ -104,3 +104,8 @@
     @apply bg-card border border-border rounded-2xl;
   }
 }
+
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+}
