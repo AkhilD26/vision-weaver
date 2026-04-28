@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
-import { ArrowUpRight, MessageCircle, Instagram } from "lucide-react";
+import { ArrowUpRight, Mail, Instagram } from "lucide-react";
 import { z } from "zod";
 
 const contactSchema = z.object({
@@ -27,8 +27,9 @@ const ContactSection = () => {
       return;
     }
     setErrors({});
-    const text = `Hi Akhil! I'm ${form.name} (${form.email}).%0A%0A${encodeURIComponent(form.message)}`;
-    window.open(`https://wa.me/919032855330?text=${text}`, "_blank");
+    const subject = encodeURIComponent(`New project inquiry from ${form.name}`);
+    const body = encodeURIComponent(`Hi Akhil,\n\nI'm ${form.name} (${form.email}).\n\n${form.message}`);
+    window.location.href = `mailto:akhilwork611@gmail.com?subject=${subject}&body=${body}`;
   };
 
   const inputClass =
@@ -49,7 +50,7 @@ const ContactSection = () => {
             Let's <em className="italic">create</em> something
           </h2>
           <p className="text-muted-foreground mt-4 max-w-lg mx-auto">
-            Drop a message and I'll get back to you on WhatsApp within 24 hours.
+            Drop a message and I'll get back to you via email within 24 hours.
           </p>
         </motion.div>
 
@@ -93,11 +94,11 @@ const ContactSection = () => {
 
           <div className="pt-8 flex flex-col sm:flex-row gap-4 items-center justify-between">
             <div className="flex gap-3">
-              <a href="https://wa.me/919032855330" target="_blank" rel="noopener noreferrer" className="btn-ghost">
-                <MessageCircle className="w-4 h-4" />
-                WhatsApp
+              <a href="mailto:akhilwork611@gmail.com" className="btn-ghost">
+                <Mail className="w-4 h-4" />
+                Email
               </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="btn-ghost">
+              <a href="https://instagram.com/nox_flicks" target="_blank" rel="noopener noreferrer" className="btn-ghost">
                 <Instagram className="w-4 h-4" />
                 Instagram
               </a>

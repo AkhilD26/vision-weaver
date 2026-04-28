@@ -9,11 +9,11 @@ const Footer = () => {
           © {new Date().getFullYear()} Akhil Edits — Freelance video editor.
         </p>
         <div className="flex gap-6">
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors text-sm">
+          <a href="https://instagram.com/nox_flicks" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors text-sm">
             Instagram
           </a>
-          <a href="https://wa.me/919032855330" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors text-sm">
-            WhatsApp
+          <a href="mailto:akhilwork611@gmail.com" className="text-muted-foreground hover:text-foreground transition-colors text-sm">
+            Email
           </a>
         </div>
       </div>
