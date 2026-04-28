@@ -3,21 +3,9 @@ import { motion, useInView } from "framer-motion";
 import { Star } from "lucide-react";
 
 const testimonials = [
-  {
-    name: "Arjun K.",
-    role: "YouTube Creator",
-    text: "Akhil transformed my channel. The editing quality and turnaround time are unmatched. My views doubled within a month!",
-  },
-  {
-    name: "Sneha R.",
-    role: "Brand Manager",
-    text: "The ad videos were exactly what we needed — cinematic, engaging, and delivered on time. Highly recommended.",
-  },
-  {
-    name: "Vikram P.",
-    role: "Fitness Influencer",
-    text: "My reels went viral after working with Akhil. The motion graphics and pacing are on another level.",
-  },
+  { name: "Ravi K.", role: "Content Creator", quote: "Akhil's edits hit different. Our retention jumped 40% on every short he touched." },
+  { name: "Priya S.", role: "Brand Manager", quote: "Fast, reliable, and ridiculously creative. He just gets what works on Reels." },
+  { name: "Arjun M.", role: "YouTuber", quote: "Hands down the best freelance editor I've worked with. Viral-grade work, every time." },
 ];
 
 const TestimonialsSection = () => {
@@ -29,34 +17,38 @@ const TestimonialsSection = () => {
       <div className="container mx-auto">
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-14"
+          className="flex items-end justify-between mb-14 flex-wrap gap-4"
         >
-          <h2 className="font-display text-3xl md:text-5xl font-bold mb-4">
-            Client <span className="gradient-text">Reviews</span>
-          </h2>
+          <div>
+            <span className="section-label">Testimonials</span>
+            <h2 className="font-display text-4xl md:text-6xl mt-4 max-w-2xl">
+              What clients <em className="italic">say</em>
+            </h2>
+          </div>
+          <span className="text-muted-foreground text-sm">(05)</span>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {testimonials.map((t, i) => (
             <motion.div
               key={t.name}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.12 }}
-              className="glass rounded-xl p-6"
+              className="card-soft p-8"
             >
               <div className="flex gap-1 mb-4">
                 {[...Array(5)].map((_, j) => (
-                  <Star key={j} className="w-4 h-4 fill-primary text-primary" />
+                  <Star key={j} className="w-4 h-4 fill-foreground text-foreground" />
                 ))}
               </div>
-              <p className="text-muted-foreground leading-relaxed mb-5 text-sm">"{t.text}"</p>
+              <p className="text-foreground text-lg leading-relaxed mb-6">"{t.quote}"</p>
               <div>
-                <div className="font-display font-semibold text-foreground">{t.name}</div>
-                <div className="text-xs text-muted-foreground">{t.role}</div>
+                <p className="font-medium text-foreground">{t.name}</p>
+                <p className="text-sm text-muted-foreground">{t.role}</p>
               </div>
             </motion.div>
           ))}
