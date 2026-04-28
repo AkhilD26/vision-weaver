@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Check } from "lucide-react";
+import { Check, ArrowUpRight } from "lucide-react";
 
 const plans = [
   {
@@ -31,65 +31,67 @@ const PricingSection = () => {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="pricing" className="section-padding">
+    <section id="pricing" className="section-padding bg-secondary/40">
       <div className="container mx-auto">
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-14"
+          className="flex items-end justify-between mb-14 flex-wrap gap-4"
         >
-          <h2 className="font-display text-3xl md:text-5xl font-bold mb-4">
-            Simple <span className="gradient-text">Pricing</span>
-          </h2>
-          <p className="text-muted-foreground max-w-lg mx-auto">
-            Transparent pricing with no hidden fees
-          </p>
+          <div>
+            <span className="section-label">Pricing</span>
+            <h2 className="font-display text-4xl md:text-6xl mt-4 max-w-2xl">
+              Pick your <em className="italic">plan</em>
+            </h2>
+          </div>
+          <span className="text-muted-foreground text-sm">(06)</span>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {plans.map((plan, i) => (
             <motion.div
               key={plan.name}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: i * 0.12 }}
-              className={`rounded-xl p-6 relative ${
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className={`rounded-2xl p-8 relative border ${
                 plan.popular
-                  ? "gradient-primary text-primary-foreground neon-glow"
-                  : "glass"
+                  ? "bg-foreground text-background border-foreground"
+                  : "bg-card border-border text-foreground"
               }`}
             >
               {plan.popular && (
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-background text-primary text-xs font-bold px-3 py-1 rounded-full">
-                  MOST POPULAR
+                <span className="absolute -top-3 left-8 bg-primary text-primary-foreground text-xs font-medium px-3 py-1 rounded-full">
+                  Most popular
                 </span>
               )}
-              <h3 className="font-display text-lg font-semibold mb-1">{plan.name}</h3>
-              <div className="mb-5">
-                <span className="font-display text-4xl font-bold">{plan.price}</span>
-                <span className={`text-sm ${plan.popular ? "text-primary-foreground/70" : "text-muted-foreground"}`}>
+              <h3 className="font-display text-3xl mb-2">{plan.name}</h3>
+              <div className="mb-6 flex items-baseline gap-1">
+                <span className="font-display text-5xl">{plan.price}</span>
+                <span className={`text-sm ${plan.popular ? "opacity-60" : "text-muted-foreground"}`}>
                   {plan.unit}
                 </span>
               </div>
-              <ul className="space-y-3 mb-6">
+              <ul className="space-y-3 mb-8">
                 {plan.features.map((f) => (
-                  <li key={f} className="flex items-center gap-2 text-sm">
-                    <Check className="w-4 h-4 shrink-0" />
+                  <li key={f} className="flex items-start gap-2 text-sm">
+                    <Check className="w-4 h-4 shrink-0 mt-0.5" />
                     {f}
                   </li>
                 ))}
               </ul>
               <a
                 href="#contact"
-                className={`block text-center py-3 rounded-lg font-semibold transition-all ${
-                  plan.popular
-                    ? "bg-background text-foreground hover:bg-secondary"
-                    : "gradient-primary text-primary-foreground hover:opacity-90"
+                className={`inline-flex items-center gap-2 rounded-full pl-5 pr-1 py-1 w-full justify-between text-sm font-medium transition-opacity hover:opacity-90 ${
+                  plan.popular ? "bg-background text-foreground" : "bg-foreground text-background"
                 }`}
               >
-                Get Started
+                Get started
+                <span className={`w-9 h-9 rounded-full flex items-center justify-center ${plan.popular ? "bg-foreground text-background" : "bg-background text-foreground"}`}>
+                  <ArrowUpRight className="w-4 h-4" />
+                </span>
               </a>
             </motion.div>
           ))}

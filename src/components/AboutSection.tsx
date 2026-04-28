@@ -1,11 +1,26 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Film, Zap, Sparkles } from "lucide-react";
 
 const stats = [
-  { icon: Film, value: "100+", label: "Videos Edited" },
-  { icon: Zap, value: "2 Days", label: "Fast Delivery" },
-  { icon: Sparkles, value: "Premium", label: "High Graphics Edits" },
+  { value: "500M+", label: "Views generated" },
+  { value: "100+", label: "Creators trusted" },
+  { value: "85%", label: "Avg retention rate" },
+  { value: "24h", label: "Turnaround available" },
+];
+
+const benefits = [
+  {
+    title: "24-hour turnaround available",
+    description: "Fast delivery without compromising quality. Your content, ready when you need it.",
+  },
+  {
+    title: "Perfectly formatted for every platform",
+    description: "Every edit is optimized for TikTok, Instagram Reels, and YouTube for maximum visibility.",
+  },
+  {
+    title: "Unlimited revisions",
+    description: "I fine-tune your edit until it's 100% perfect — no extra fees, no hassle.",
+  },
 ];
 
 const AboutSection = () => {
@@ -13,56 +28,54 @@ const AboutSection = () => {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="about" className="section-padding">
+    <section id="benefits" className="section-padding">
       <div className="container mx-auto">
-        <div className="grid md:grid-cols-2 gap-16 items-center">
-          <motion.div
-            ref={ref}
-            initial={{ opacity: 0, x: -40 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7 }}
-          >
-            <h2 className="font-display text-3xl md:text-5xl font-bold mb-6">
-              About <span className="gradient-text">Me</span>
+        <motion.div
+          ref={ref}
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="flex items-end justify-between mb-14 flex-wrap gap-4"
+        >
+          <div>
+            <span className="section-label">Benefits</span>
+            <h2 className="font-display text-4xl md:text-6xl mt-4 max-w-2xl">
+              So, why <em className="italic">choose</em> me?
             </h2>
-            <p className="text-muted-foreground text-lg leading-relaxed mb-4">
-              Hey! I'm <span className="text-foreground font-semibold">Akhil</span> — a freelance video editor who helps creators and brands grow with high-retention, visually engaging videos.
-            </p>
-            <p className="text-muted-foreground leading-relaxed mb-8">
-              Specializing in YouTube content, Instagram Reels, and advertising spots — I bring cinematic quality to every project. From color grading to motion graphics, every frame is crafted to captivate your audience.
-            </p>
-            <a
-              href="#contact"
-              className="gradient-primary text-primary-foreground px-6 py-3 rounded-xl font-semibold inline-block neon-glow hover:opacity-90 transition-opacity"
-            >
-              Let's Work Together
-            </a>
-          </motion.div>
+          </div>
+          <span className="text-muted-foreground text-sm">(03)</span>
+        </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="grid gap-4"
-          >
-            {stats.map((stat, i) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.3 + i * 0.15 }}
-                className="glass rounded-xl p-6 flex items-center gap-5 hover-scale"
-              >
-                <div className="w-14 h-14 rounded-xl gradient-primary flex items-center justify-center shrink-0 neon-glow">
-                  <stat.icon className="text-primary-foreground w-6 h-6" />
-                </div>
-                <div>
-                  <div className="font-display text-2xl font-bold text-foreground">{stat.value}</div>
-                  <div className="text-muted-foreground text-sm">{stat.label}</div>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
+        {/* Stats */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+          {stats.map((s, i) => (
+            <motion.div
+              key={s.label}
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="card-soft p-6 md:p-8"
+            >
+              <p className="font-display text-5xl md:text-6xl text-foreground">{s.value}</p>
+              <p className="text-sm text-muted-foreground mt-2">{s.label}</p>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Benefit cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {benefits.map((b, i) => (
+            <motion.div
+              key={b.title}
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
+              className="card-soft p-8"
+            >
+              <h3 className="font-display text-2xl mb-3">{b.title}</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">{b.description}</p>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
