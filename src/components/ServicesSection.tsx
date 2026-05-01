@@ -19,6 +19,11 @@ const services = [
   },
   {
     num: "04",
+    title: "Thumbnail design",
+    description: "High-CTR thumbnails that stop the scroll. Combining psychology, bold typography, and visual hooks to get your content the clicks it deserves.",
+  },
+  {
+    num: "05",
     title: "Long-form editing",
     description: "Professional edits for YouTube, podcasts, and more. From pacing to polish, making long-form content engaging from the first second to the last.",
   },

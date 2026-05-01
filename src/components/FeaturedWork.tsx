@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
-import { motion, useInView } from "framer-motion";
-import { Play } from "lucide-react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
+import { Play, Image as ImageIcon, ExternalLink } from "lucide-react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 interface VideoProject {
   id: string;
@@ -9,7 +10,14 @@ interface VideoProject {
   youtubeId: string;
 }
 
-const projects: VideoProject[] = [
+interface ThumbnailProject {
+  id: string;
+  title: string;
+  category: string;
+  imageUrl: string;
+}
+
+const videoProjects: VideoProject[] = [
   { id: "1", title: "Cinematic Short", views: "1.1M", youtubeId: "-TVt1tFf8eg" },
   { id: "2", title: "Dynamic Edit", views: "2.3M", youtubeId: "weO4MTp3tRg" },
   { id: "3", title: "Motion Flow", views: "980K", youtubeId: "oH-b-MrvZRk" },
@@ -18,6 +26,45 @@ const projects: VideoProject[] = [
   { id: "6", title: "Promo Reel", views: "1.8M", youtubeId: "wNDwb00WJcY" },
   { id: "7", title: "Product Launch", views: "720K", youtubeId: "lYoUh-920og" },
   { id: "8", title: "Engaging Short", views: "2.1M", youtubeId: "TBfMM3W2RCs" },
+];
+
+const thumbnailProjects: ThumbnailProject[] = [
+  { 
+    id: "t1", 
+    title: "Gaming Strategy Masterclass", 
+    category: "Gaming", 
+    imageUrl: "https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2070&auto=format&fit=crop" 
+  },
+  { 
+    id: "t2", 
+    title: "How to Scale Your SaaS", 
+    category: "Business", 
+    imageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop" 
+  },
+  { 
+    id: "t3", 
+    title: "10 Days in Tokyo", 
+    category: "Vlog", 
+    imageUrl: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=2070&auto=format&fit=crop" 
+  },
+  { 
+    id: "t4", 
+    title: "Ultimate Desk Setup 2024", 
+    category: "Tech", 
+    imageUrl: "https://images.unsplash.com/photo-1491933382434-500287f9b54b?q=80&w=2064&auto=format&fit=crop" 
+  },
+  { 
+    id: "t5", 
+    title: "Minimalist Design Theory", 
+    category: "Education", 
+    imageUrl: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2070&auto=format&fit=crop" 
+  },
+  { 
+    id: "t6", 
+    title: "The Future of AI Video", 
+    category: "AI", 
+    imageUrl: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070&auto=format&fit=crop" 
+  },
 ];
 
 const VideoCard = ({ project, index }: { project: VideoProject; index: number }) => {
@@ -66,6 +113,37 @@ const VideoCard = ({ project, index }: { project: VideoProject; index: number })
   );
 };
 
+const ThumbnailCard = ({ project, index }: { project: ThumbnailProject; index: number }) => {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-50px" });
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 30 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.5, delay: index * 0.08 }}
+      className="relative shrink-0 w-[320px] md:w-[400px] aspect-video rounded-2xl overflow-hidden group cursor-pointer bg-muted"
+    >
+      <img
+        src={project.imageUrl}
+        alt={project.title}
+        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+        loading="lazy"
+      />
+      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+        <div className="w-12 h-12 rounded-full bg-white text-black flex items-center justify-center translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+          <ExternalLink className="w-5 h-5" />
+        </div>
+      </div>
+      <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/80 to-transparent">
+        <span className="text-[10px] uppercase tracking-wider text-white/60 mb-1 block">{project.category}</span>
+        <p className="text-white font-medium line-clamp-1">{project.title}</p>
+      </div>
+    </motion.div>
+  );
+};
+
 const FeaturedWork = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true });
@@ -78,28 +156,58 @@ const FeaturedWork = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="flex items-end justify-between mb-12 flex-wrap gap-4"
+          className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-8"
         >
           <div>
-            <span className="section-label">Highlighted edits</span>
+            <span className="section-label">Portfolio</span>
             <h2 className="font-display text-4xl md:text-6xl mt-4 max-w-2xl">
-              Edits that <em className="italic">move</em> numbers
+              Results that <em className="italic">demand</em> attention
             </h2>
           </div>
-          <span className="text-muted-foreground text-sm">(01)</span>
+          
+          <Tabs defaultValue="videos" className="w-full md:w-auto">
+            <TabsList className="grid w-full grid-cols-2 md:w-[300px]">
+              <TabsTrigger value="videos" className="flex items-center gap-2">
+                <Play className="w-3.5 h-3.5" />
+                Videos
+              </TabsTrigger>
+              <TabsTrigger value="thumbnails" className="flex items-center gap-2">
+                <ImageIcon className="w-3.5 h-3.5" />
+                Thumbnails
+              </TabsTrigger>
+            </TabsList>
+            
+            <div className="mt-12 absolute left-0 w-full overflow-hidden">
+              <TabsContent value="videos" className="m-0">
+                <div className="flex gap-4 md:gap-6 overflow-x-auto pb-6 px-4 md:px-8 snap-x snap-mandatory scrollbar-hide">
+                  {videoProjects.map((p, i) => (
+                    <div key={p.id} className="snap-start">
+                      <VideoCard project={p} index={i} />
+                    </div>
+                  ))}
+                </div>
+              </TabsContent>
+              
+              <TabsContent value="thumbnails" className="m-0">
+                <div className="flex gap-4 md:gap-6 overflow-x-auto pb-6 px-4 md:px-8 snap-x snap-mandatory scrollbar-hide">
+                  {thumbnailProjects.map((p, i) => (
+                    <div key={p.id} className="snap-start">
+                      <ThumbnailCard project={p} index={i} />
+                    </div>
+                  ))}
+                </div>
+              </TabsContent>
+            </div>
+          </Tabs>
+          
+          <span className="text-muted-foreground text-sm hidden md:block">(01)</span>
         </motion.div>
       </div>
 
-      <div className="flex gap-4 md:gap-6 overflow-x-auto pb-6 px-4 md:px-8 snap-x snap-mandatory scrollbar-hide">
-        {projects.map((p, i) => (
-          <div key={p.id} className="snap-start">
-            <VideoCard project={p} index={i} />
-          </div>
-        ))}
-      </div>
+      <div className="h-[500px] md:h-[600px]" /> {/* Spacer for absolute positioned content */}
 
       <p className="text-center text-muted-foreground text-sm mt-8">
-        Editing that grows brand audiences
+        Content engineered for maximum engagement and high CTR
       </p>
     </section>
   );
