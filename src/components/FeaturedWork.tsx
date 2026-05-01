@@ -31,39 +31,39 @@ const videoProjects: VideoProject[] = [
 const thumbnailProjects: ThumbnailProject[] = [
   { 
     id: "t1", 
-    title: "Gaming Strategy Masterclass", 
-    category: "Gaming", 
-    imageUrl: "https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2070&auto=format&fit=crop" 
+    title: "Disney's Secret Conspiracy", 
+    category: "Documentary", 
+    imageUrl: "/thumbnails/Disney Conspiracy.jpg" 
   },
   { 
     id: "t2", 
-    title: "How to Scale Your SaaS", 
-    category: "Business", 
-    imageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop" 
+    title: "Gen V: The Boys Spinoff Review", 
+    category: "Entertainment", 
+    imageUrl: "/thumbnails/Gen V.jpg" 
   },
   { 
     id: "t3", 
-    title: "10 Days in Tokyo", 
-    category: "Vlog", 
-    imageUrl: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=2070&auto=format&fit=crop" 
+    title: "Karate Kid Legends: The Return", 
+    category: "Movies", 
+    imageUrl: "/thumbnails/Karate Kid Legends-1.jpg" 
   },
   { 
     id: "t4", 
-    title: "Ultimate Desk Setup 2024", 
-    category: "Tech", 
-    imageUrl: "https://images.unsplash.com/photo-1491933382434-500287f9b54b?q=80&w=2064&auto=format&fit=crop" 
+    title: "The Truth About Side Characters", 
+    category: "Analysis", 
+    imageUrl: "/thumbnails/Side character Truth 3-1.jpg" 
   },
   { 
     id: "t5", 
-    title: "Minimalist Design Theory", 
-    category: "Education", 
-    imageUrl: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2070&auto=format&fit=crop" 
+    title: "Spicy Wing Challenge", 
+    category: "Vlog", 
+    imageUrl: "/thumbnails/Spicy wing.jpg" 
   },
   { 
     id: "t6", 
-    title: "The Future of AI Video", 
-    category: "AI", 
-    imageUrl: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070&auto=format&fit=crop" 
+    title: "Valorant: Professional Guide", 
+    category: "Gaming", 
+    imageUrl: "/thumbnails/valorant 2-1.jpg" 
   },
 ];
 
