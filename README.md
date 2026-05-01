@@ -1,3 +1,3 @@
-# Welcome to your Lovable project
+# Vision Weaver
 
-TODO: Document your project here
+Freelance Video Editing Portfolio
